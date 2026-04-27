@@ -1,0 +1,12 @@
+# requirements.txt
+numpy
+pandas
+matplotlib
+scikit-learn
+h5py
+jupyter
+torch
+torchvision
+torchaudio
+tensorflow
+keras
