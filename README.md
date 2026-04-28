@@ -5,9 +5,16 @@ Implementing state-of-the-art deep learning models from scratch. Exploring the e
 ## Contents
 
 ### 01 - ResNet (Residual Networks)
-- *Status: In Progress*
-- Implementing Identity and Convolutional Blocks to solve the vanishing gradient problem.
-- Architectures: ResNet50
+- **Status:** Completed
+- **Architecture:** ResNet50 (Built from scratch using Keras Functional API)
+- **Key Components:** Implemented custom Identity Blocks and Convolutional Blocks with skip connections to solve the vanishing gradient problem.
+- **Optimization & Hardware:** - Utilized `mixed_float16` precision to successfully train the massive architecture locally on a 4GB RTX 3050.
+  - Implemented Gradient Clipping (`clipnorm=1.0`) to prevent exploding gradients.
+  - Used `EarlyStopping` and `ReduceLROnPlateau` callbacks to capture optimal weights and stabilize the learning rate.
+- **Performance:**
+  - Training Accuracy: 100%
+  - Validation Accuracy: 95.37%
+  - Test Accuracy: 92.50%
 
 ### 02 - Inception Networks
 - *Status: Planned*
