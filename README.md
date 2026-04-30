@@ -20,9 +20,18 @@ Implementing state-of-the-art deep learning models from scratch. Exploring the e
 - *Status: Planned*
 - Implementing Inception modules with 1x1 convolutions for dimensionality reduction.
 
-### 03 - MobileNet
-- *Status: Planned*
-- Implementing Depthwise Separable Convolutions for lightweight, efficient mobile models.
+### 03 - MobileNet (Transfer Learning)
+- **Status:** Completed
+- **Architecture:** MobileNetV2
+- **Key Components:** 
+  - Leveraged pre-trained ImageNet weights for lightweight, highly efficient feature extraction.
+  - Built a custom, on-the-fly data augmentation pipeline (`RandomFlip`, `RandomRotation`) directly into the Keras model.
+  - Replaced the original 1000-class ImageNet head with a custom binary classification head utilizing `GlobalAveragePooling2D` and `Dropout`.
+- **Optimization & Fine-Tuning:**
+  - Successfully implemented a two-phase transfer learning approach:
+    1. **Feature Extraction:** Froze the entire MobileNetV2 base model to train the custom classification head.
+    2. **Fine-Tuning:** Unfroze the top 34 layers (layers 120-154) of the base model while applying a 90% learning rate reduction (`0.1 * base_lr`) to safely adapt the pre-trained weights to the new dataset without catastrophic forgetting.
+  - Handled raw unscaled model outputs by configuring `BinaryCrossentropy` with `from_logits=True`.
 
 ## Environment Setup
 
@@ -37,10 +46,10 @@ Stack
 Python · PyTorch · TensorFlow · Keras · NumPy · Matplotlib · Jupyter
 
 Progress
-[ ] ResNet (Residual Networks)
+[x] ResNet (Residual Networks)
 
 [ ] Inception Network (GoogLeNet)
 
-[ ] MobileNet (v1/v2)
+[x] MobileNet (v2)
 
 [ ] EfficientNet
