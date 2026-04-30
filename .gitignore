@@ -220,6 +220,9 @@ lightning_logs/
 data/
 datasets/
 dataset/
+Dataset/
+Datasets
+Data
 
 # Environment
 .env
